@@ -1,0 +1,32 @@
+/*
+Base Styles & Universal Elements
+*/
+
+:root {
+    /*COLORS*/
+    --blue: #206173;
+    --blue-alt: #1B515F;
+    --dark-orange: #733220;
+    --dark-orange-alt: #CC6447;
+    --light-gray-alt: #E5E7EB;
+    --almost-black: #222328;
+    --almost-white: #fefefe;
+    
+    /*FONTS*/
+    --font-primary: 'Noto Sans', sans-serif;
+
+    /*USE CASES*/
+    --button-bg: var(--blue);
+    --button-bg-state: var(--blue-alt);
+    --font-color-base: var(--almost-black);
+    --border-radius: 5px;}
+
+html{
+    height: 100%;}
+    html * {
+        box-sizing: border-box;}
+
+body{
+    font-family: var(--font-primary);
+    font-size: 1.125rem;
+    line-height: 1.35;}
