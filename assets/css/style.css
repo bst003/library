@@ -48,6 +48,8 @@ Site Header
 header{
     padding: 20px 0px; 
     background-color: var(--blue);}
+    header .wrap{
+        width: min(1280px, 90%);}
     header p{
         margin: 0px;
         color: var(--almost-white);
