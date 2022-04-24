@@ -48,13 +48,13 @@ function addBookToLibrary(object) {
 }
 
 
-let theHobbit = new Book('The Hobbit', 'J.R.R. Tolkein', 304, true);
+let theHobbit = new Book('The Hobbit', 'J.R.R. Tolkein', 304, 'read');
 addBookToLibrary(theHobbit);
 
-let moscow = new Book('A Gentleman in Moscow', 'Amor Towles', 462, true);
+let moscow = new Book('A Gentleman in Moscow', 'Amor Towles', 462, 'read');
 addBookToLibrary(moscow);
 
-let emma = new Book('Emma', 'Jane Austen', 1036, false);
+let emma = new Book('Emma', 'Jane Austen', 1036, 'not read');
 addBookToLibrary(emma);
 
 displayLibraryItems(myLibrary);

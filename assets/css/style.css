@@ -35,7 +35,7 @@ body{
 .wrap{
     display: block;
     margin: 0 auto;
-    width: min(1080px, 90%);}
+    width: min(1120px, 90%);}
 
 p{
     margin: 16px 0px;}
@@ -74,4 +74,5 @@ main{
 
         #library-items td,
         #library-items th{
-            padding: 16px 0px;}
+            padding: 16px 0px;
+            width: 25%;}
