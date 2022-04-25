@@ -27,8 +27,53 @@
 
             <p>
                 This project is a project for <i>The Odin Project</i> to showcase the use of basic object constructors. 
-                Feel free to modify the existing items in the library below or add your own.
+                Feel free to modify the existing items in the library below or add your own using the form below.
             </p>
+
+            <form id="new-book">
+
+                <div>
+                    <label for="name">
+                        Name
+                    </label>
+                    <input id="name" name="name" type="text" required>
+                </div>
+
+                <div>
+                    <label for="author">
+                        Author
+                    </label>
+                    <input id="author" name="author" type="text" required>
+                </div>
+
+                <div>
+                    <label for="pages">
+                        Pages
+                    </label>
+                    <input id="pages" name="pages" type="number" required>
+                </div>
+
+                <div>
+                    <label for="status">
+                        Status
+                    </label>
+                    <select id="status" name="status">
+                        <option value="read">
+                            Read
+                        </option>
+                        <option value="not read">
+                            Not Read
+                        </option>
+                    </select>
+                </div>
+
+                <div class="submit-contain">
+                    <button type="submit">
+                        Submit
+                    </button>
+                </div>
+
+            </form>
 
             <table id="library-items">
 
@@ -48,7 +93,7 @@
                         </th>
 
                         <th>
-                            Read
+                            Status
                         </th>
 
                     </tr>

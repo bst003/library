@@ -10,11 +10,11 @@ Create a function to toggle the read status of the book using a button
 let myLibrary = [];
 
 
-function Book(name, author, pages, read) {
+function Book(name, author, pages, status) {
     this.name = name,
     this.author = author,
     this.pages = pages,
-    this.read = read;
+    this.status = status;
 }
 
 
@@ -22,7 +22,7 @@ function displayLibraryItems(array){
 
     const tableBody = document.querySelector('#library-items tbody');
 
-    myLibrary.forEach( (book, index) => {
+    array.forEach( (book, index) => {
 
         let row = document.createElement('tr');
         row.setAttribute('data-index', index);
