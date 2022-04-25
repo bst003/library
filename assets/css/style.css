@@ -130,4 +130,5 @@ main{
         #library-items td,
         #library-items th{
             padding: 16px 0px;
+            font-size: 1rem;
             width: 25%;}
