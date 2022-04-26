@@ -7,8 +7,17 @@ Create a function to delete books from the page using a button
 Create a function to toggle the read status of the book using a button
 */
 
-let myLibrary = [];
+/*/////////////////////////////////////////
+Global Variables
+/////////////////////////////////////////*/
 
+let myLibrary = [];
+const newBookForm = document.querySelector('#new-book');
+
+
+/*/////////////////////////////////////////
+Functions
+/////////////////////////////////////////*/
 
 function Book(name, author, pages, status) {
     this.name = name,
@@ -21,6 +30,7 @@ function Book(name, author, pages, status) {
 function displayLibraryItems(array){
 
     const tableBody = document.querySelector('#library-items tbody');
+    tableBody.innerText = '';
 
     array.forEach( (book, index) => {
 
@@ -43,9 +53,38 @@ function displayLibraryItems(array){
 }
 
 
+function submitNewBook(e){
+    e.preventDefault();
+
+    // get values from form fields
+    let nameValue = document.querySelector('#name').value;
+    let authorValue = document.querySelector('#author').value;
+    let pagesValue = document.querySelector('#pages').value;
+    let statusValue = document.querySelector('#status').value;
+
+    // create object and add to library
+    let newBook = new Book(nameValue, authorValue, pagesValue, statusValue);
+    addBookToLibrary(newBook);
+
+    // reset values on form
+    document.querySelector('#name').value = '';
+    document.querySelector('#author').value = '';
+    document.querySelector('#pages').value = '';
+    document.querySelector('#status').value = 'read';
+
+    // Display the new library 
+    displayLibraryItems(myLibrary);
+}
+
+
 function addBookToLibrary(object) {
     myLibrary.push(object);
 }
+
+
+/*/////////////////////////////////////////
+Setup and Interaction
+/////////////////////////////////////////*/
 
 
 let theHobbit = new Book('The Hobbit', 'J.R.R. Tolkein', 304, 'read');
@@ -58,5 +97,7 @@ let emma = new Book('Emma', 'Jane Austen', 1036, 'not read');
 addBookToLibrary(emma);
 
 displayLibraryItems(myLibrary);
+
+newBookForm.addEventListener('submit', submitNewBook );
 
 console.table(myLibrary);
