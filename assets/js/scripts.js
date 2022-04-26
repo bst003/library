@@ -46,9 +46,21 @@ function displayLibraryItems(array){
 
         }
 
+        let cell = document.createElement('td');
+
+        let deleteButton = document.createElement('button');
+        deleteButton.setAttribute('class', 'delete-item alt');
+        deleteButton.innerText = 'Delete';
+
+        cell.appendChild(deleteButton);
+
+        row.appendChild(cell);
+
         tableBody.appendChild(row);
 
     });
+
+
 
 }
 
