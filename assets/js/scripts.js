@@ -1,12 +1,3 @@
-/*
-Create an array to hold the book objects
-Create a constructor to create the book objects
-Create a function to add the books the the library
-Create a function to add the books to the page
-Create a function to delete books from the page using a button
-Create a function to toggle the read status of the book using a button
-*/
-
 /*/////////////////////////////////////////
 Global Variables
 /////////////////////////////////////////*/
@@ -18,6 +9,10 @@ const newBookForm = document.querySelector('#new-book');
 /*/////////////////////////////////////////
 Functions
 /////////////////////////////////////////*/
+
+
+// Constructor Functions
+////////////////////
 
 function Book(name, author, pages, status) {
     this.name = name,
@@ -37,6 +32,9 @@ Book.prototype.toggleMethod = function() {
 }
 
 
+// Listener Functions
+////////////////////
+
 function setupDeleteListeners() {
     const deleteRowButtons = document.querySelectorAll('.delete-item');
     deleteRowButtons.forEach( (deleteRowButton) => {
@@ -54,6 +52,14 @@ function setupStatusListeners() {
         statusToggleButton.addEventListener('click', toggleStatus );
     
     });
+}
+
+
+// Main Functions
+////////////////////
+
+function addBookToLibrary(object) {
+    myLibrary.push(object);
 }
 
 
@@ -161,11 +167,6 @@ function toggleStatus(e){
 }
 
 
-function addBookToLibrary(object) {
-    myLibrary.push(object);
-}
-
-
 /*/////////////////////////////////////////
 Setup and Interaction
 /////////////////////////////////////////*/
@@ -187,5 +188,3 @@ displayLibraryItems(myLibrary);
 
 
 newBookForm.addEventListener('submit', submitNewBook );
-
-// console.table(myLibrary);
