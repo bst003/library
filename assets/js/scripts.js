@@ -60,10 +60,19 @@ function displayLibraryItems(array){
 
     });
 
+    // Set up event listeners for delete buttons every time item is added
+    const deleteRowButtons = document.querySelectorAll('.delete-item');
+    deleteRowButtons.forEach( (deleteRowButton) => {
+
+        deleteRowButton.addEventListener('click', deleteRow );
+    
+    });
+
 }
 
 
 function submitNewBook(e){
+
     e.preventDefault();
 
     // get values from form fields
@@ -84,6 +93,19 @@ function submitNewBook(e){
 
     // Display the new library 
     displayLibraryItems(myLibrary);
+
+}
+
+
+function deleteRow(e){
+
+    let row = e.target.parentNode.parentNode;
+    let rowIndex = row.getAttribute('data-index');
+
+    myLibrary.splice(rowIndex,1);
+
+    displayLibraryItems(myLibrary);
+
 }
 
 
@@ -108,6 +130,9 @@ addBookToLibrary(emma);
 
 displayLibraryItems(myLibrary);
 
+
 newBookForm.addEventListener('submit', submitNewBook );
+
+
 
 console.table(myLibrary);
