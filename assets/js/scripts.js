@@ -26,6 +26,36 @@ function Book(name, author, pages, status) {
     this.status = status;
 }
 
+Book.prototype.toggleMethod = function() {
+
+    if( this.status === 'read'){
+        this.status = 'not read';
+    } else {
+        this.status = 'read';
+    }
+
+}
+
+
+function setupDeleteListeners() {
+    const deleteRowButtons = document.querySelectorAll('.delete-item');
+    deleteRowButtons.forEach( (deleteRowButton) => {
+
+        deleteRowButton.addEventListener('click', deleteRow );
+    
+    });
+}
+
+
+function setupStatusListeners() {
+    const statusToggleButtons = document.querySelectorAll('.toggle-status');
+    statusToggleButtons.forEach( (statusToggleButton) => {
+
+        statusToggleButton.addEventListener('click', toggleStatus );
+    
+    });
+}
+
 
 function displayLibraryItems(array){
 
@@ -39,8 +69,21 @@ function displayLibraryItems(array){
 
         for (let prop in book){
 
+            if( prop === 'toggleMethod' ){ 
+                continue 
+            }
+
             let cell = document.createElement('td');
-            cell.innerText = book[prop];
+
+            if( prop === 'status' ){
+                let statusButton = document.createElement('button');
+                statusButton.setAttribute('class', 'toggle-status');
+                statusButton.innerText = book[prop];
+
+                cell.appendChild(statusButton);
+            } else {
+                cell.innerText = book[prop];
+            }
 
             row.appendChild(cell);
 
@@ -60,13 +103,8 @@ function displayLibraryItems(array){
 
     });
 
-    // Set up event listeners for delete buttons every time item is added
-    const deleteRowButtons = document.querySelectorAll('.delete-item');
-    deleteRowButtons.forEach( (deleteRowButton) => {
-
-        deleteRowButton.addEventListener('click', deleteRow );
-    
-    });
+    setupDeleteListeners();
+    setupStatusListeners();
 
 }
 
@@ -109,6 +147,20 @@ function deleteRow(e){
 }
 
 
+function toggleStatus(e){
+
+    let row = e.target.parentNode.parentNode;
+    let rowIndex = row.getAttribute('data-index');
+
+    let currentObject = myLibrary[rowIndex];
+
+    currentObject.toggleMethod();
+
+    displayLibraryItems(myLibrary);
+
+}
+
+
 function addBookToLibrary(object) {
     myLibrary.push(object);
 }
@@ -122,17 +174,18 @@ Setup and Interaction
 let theHobbit = new Book('The Hobbit', 'J.R.R. Tolkein', 304, 'read');
 addBookToLibrary(theHobbit);
 
+
 let moscow = new Book('A Gentleman in Moscow', 'Amor Towles', 462, 'read');
 addBookToLibrary(moscow);
 
+
 let emma = new Book('Emma', 'Jane Austen', 1036, 'not read');
 addBookToLibrary(emma);
+
 
 displayLibraryItems(myLibrary);
 
 
 newBookForm.addEventListener('submit', submitNewBook );
 
-
-
-console.table(myLibrary);
+// console.table(myLibrary);
