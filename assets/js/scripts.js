@@ -10,7 +10,6 @@ const newBookForm = document.querySelector('#new-book');
 Functions
 /////////////////////////////////////////*/
 
-
 // Constructor Functions
 ////////////////////
 
@@ -170,7 +169,6 @@ function toggleStatus(e){
 /*/////////////////////////////////////////
 Setup and Interaction
 /////////////////////////////////////////*/
-
 
 let theHobbit = new Book('The Hobbit', 'J.R.R. Tolkein', 304, 'read');
 addBookToLibrary(theHobbit);
