@@ -57,11 +57,6 @@ function setupStatusListeners() {
 // Main Functions
 ////////////////////
 
-function addBookToLibrary(object) {
-    myLibrary.push(object);
-}
-
-
 function displayLibraryItems(array){
 
     const tableBody = document.querySelector('#library-items tbody');
@@ -114,7 +109,7 @@ function displayLibraryItems(array){
 }
 
 
-function submitNewBook(e){
+function addBookToLibrary(e){
 
     e.preventDefault();
 
@@ -126,7 +121,7 @@ function submitNewBook(e){
 
     // create object and add to library
     let newBook = new Book(nameValue, authorValue, pagesValue, statusValue);
-    addBookToLibrary(newBook);
+    myLibrary.push(newBook);
 
     // reset values on form
     document.querySelector('#name').value = '';
@@ -171,18 +166,18 @@ Setup and Interaction
 /////////////////////////////////////////*/
 
 let theHobbit = new Book('The Hobbit', 'J.R.R. Tolkein', 304, 'read');
-addBookToLibrary(theHobbit);
+myLibrary.push(theHobbit);
 
 
 let moscow = new Book('A Gentleman in Moscow', 'Amor Towles', 462, 'read');
-addBookToLibrary(moscow);
+myLibrary.push(moscow);
 
 
 let emma = new Book('Emma', 'Jane Austen', 1036, 'not read');
-addBookToLibrary(emma);
+myLibrary.push(emma);
 
 
 displayLibraryItems(myLibrary);
 
 
-newBookForm.addEventListener('submit', submitNewBook );
+newBookForm.addEventListener('submit', addBookToLibrary );
