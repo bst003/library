@@ -13,22 +13,41 @@ Functions
 // Constructor Functions
 ////////////////////
 
-function Book(name, author, pages, status) {
-    this.name = name,
-    this.author = author,
-    this.pages = pages,
-    this.status = status;
-}
+class Book {
 
-Book.prototype.toggleMethod = function() {
+    constructor(name, author, pages, status) {
+        this.name = name,
+        this.author = author,
+        this.pages = pages,
+        this.status = status;
+    }
 
-    if( this.status === 'read'){
-        this.status = 'not read';
-    } else {
-        this.status = 'read';
+    toggleMethod = () => {
+        if( this.status === 'read'){
+            this.status = 'not read';
+        } else {
+            this.status = 'read';
+        }
     }
 
 }
+
+// function Book(name, author, pages, status) {
+//     this.name = name,
+//     this.author = author,
+//     this.pages = pages,
+//     this.status = status;
+// }
+
+// Book.prototype.toggleMethod = function() {
+
+//     if( this.status === 'read'){
+//         this.status = 'not read';
+//     } else {
+//         this.status = 'read';
+//     }
+
+// }
 
 
 // Listener Functions
