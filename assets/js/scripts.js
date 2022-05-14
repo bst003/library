@@ -32,23 +32,6 @@ class Book {
 
 }
 
-// function Book(name, author, pages, status) {
-//     this.name = name,
-//     this.author = author,
-//     this.pages = pages,
-//     this.status = status;
-// }
-
-// Book.prototype.toggleMethod = function() {
-
-//     if( this.status === 'read'){
-//         this.status = 'not read';
-//     } else {
-//         this.status = 'read';
-//     }
-
-// }
-
 
 // Listener Functions
 ////////////////////
