@@ -78,6 +78,11 @@ form{
     label{
         font-weight: 600;
         display: block;}
+
+    .error{
+        color: red;
+        font-size: 12px;
+        font-style: italic;}
     
     input[type=text],
     input[type=number],
